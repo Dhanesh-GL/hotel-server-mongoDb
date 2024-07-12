@@ -4,7 +4,6 @@ const Booking = require("../models/Booking")
 const User = require("../models/User")
 const Listing = require("../models/Listing")
 
-/* GET TRIP LIST */
 router.get("/:userId/trips", async (req, res) => {
   try {
     const { userId } = req.params
@@ -16,7 +15,6 @@ router.get("/:userId/trips", async (req, res) => {
   }
 })
 
-/* ADD LISTING TO WISHLIST */
 router.patch("/:userId/:listingId", async (req, res) => {
   try {
     const { userId, listingId } = req.params
@@ -40,7 +38,6 @@ router.patch("/:userId/:listingId", async (req, res) => {
   }
 })
 
-/* GET PROPERTY LIST */
 router.get("/:userId/properties", async (req, res) => {
   try {
     const { userId } = req.params
@@ -52,7 +49,6 @@ router.get("/:userId/properties", async (req, res) => {
   }
 })
 
-/* GET RESERVATION LIST */
 router.get("/:userId/reservations", async (req, res) => {
   try {
     const { userId } = req.params

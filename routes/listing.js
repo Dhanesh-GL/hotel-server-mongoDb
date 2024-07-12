@@ -4,22 +4,19 @@ const multer = require("multer");
 const Listing = require("../models/Listing");
 const User = require("../models/User")
 
-/* Configuration Multer for File Upload */
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "public/uploads/"); // Store uploaded files in the 'uploads' folder
+    cb(null, "public/uploads/"); 
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname); // Use the original file name
+    cb(null, file.originalname); 
   },
 });
 
 const upload = multer({ storage });
 
-/* CREATE LISTING */
 router.post("/create", upload.array("listingPhotos"), async (req, res) => {
   try {
-    /* Take the information from the form */
     const {
       creator,
       category,
@@ -80,7 +77,6 @@ router.post("/create", upload.array("listingPhotos"), async (req, res) => {
   }
 });
 
-/* GET lISTINGS BY CATEGORY */
 router.get("/", async (req, res) => {
   const qCategory = req.query.category
 
@@ -99,7 +95,6 @@ router.get("/", async (req, res) => {
   }
 })
 
-/* GET LISTINGS BY SEARCH */
 router.get("/search/:search", async (req, res) => {
   const { search } = req.params
 
@@ -124,7 +119,6 @@ router.get("/search/:search", async (req, res) => {
   }
 })
 
-/* LISTING DETAILS */
 router.get("/:listingId", async (req, res) => {
   try {
     const { listingId } = req.params

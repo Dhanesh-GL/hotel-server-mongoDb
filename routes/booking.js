@@ -2,7 +2,6 @@ const router = require("express").Router()
 
 const Booking = require("../models/Booking")
 
-/* CREATE BOOKING */
 router.post("/create", async (req, res) => {
   try {
     const { customerId, hostId, listingId, startDate, endDate, totalPrice } = req.body

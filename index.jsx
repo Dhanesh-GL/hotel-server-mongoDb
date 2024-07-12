@@ -13,13 +13,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-/* ROUTES */
 app.use("/auth", authRoutes)
 app.use("/properties", listingRoutes)
 app.use("/bookings", bookingRoutes)
 app.use("/users", userRoutes)
 
-/* MONGOOSE SETUP */
 const PORT = 3001;
 
 const connectDB = async () => {
